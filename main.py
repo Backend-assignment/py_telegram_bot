@@ -8,10 +8,11 @@ def start(update: Update, context: CallbackContext):
     chat_id = update.message.chat.id
     bot = context.bot
 
-    dog = KeyboardButton(text='dog')
-    cat = KeyboardButton(text="cat")
+    contact = KeyboardButton(text='contact', request_contact=True)
+    location = KeyboardButton(text='location', request_location=True)
 
-    keyboard = ReplyKeyboardMarkup([[dog, cat]], resize_keyboard=True)
+    keyboard = ReplyKeyboardMarkup([[contact, location]], resize_keyboard=True)
+    
     bot.sendMessage(chat_id, "Welcome to echo bot", reply_markup=keyboard)
 
 def main(update: Update, context: CallbackContext):
